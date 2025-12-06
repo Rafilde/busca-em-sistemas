@@ -12,11 +12,27 @@ def main():
 
     search = SearchEngine(rede.graph)
 
+    # fLooding ----------------------------------------------------
     result = search.run_search(
         start_node='n1',
-        target_resource="jogo_se.exe",
-        ttl=10,
+        target_resource="dados.csv",
+        ttl=5,
         algo='flooding'
+    )
+
+    print("\nRELATÓRIO FINAL:")
+    print(f"Sucesso: {result['success']}")
+    print(f"Mensagens Trocadas: {result['msgs']}")
+    print(f"Nós envolvidos: {result['nodes']}")
+    print(f"Nó final: {result.get('final_node', 'Nenhum')}")
+
+    # Random Walk -------------------------------------------------
+
+    result = search.run_search(
+        start_node='n1',
+        target_resource="dados.csv",
+        ttl=5,
+        algo='random_walk'
     )
 
     print("\nRELATÓRIO FINAL:")
