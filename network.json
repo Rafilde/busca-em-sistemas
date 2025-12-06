@@ -1,0 +1,21 @@
+{
+  "num_nodes": 6,
+  "min_neighbors": 1,
+  "max_neighbors": 4,
+  "resources": {
+    "n1": ["filme_matrix.mp4", "foto_ferias.jpg"],
+    "n2": ["trabalho_p2p.pdf"],
+    "n3": ["musica.mp3"],
+    "n4": ["jogo_snake.exe", "receita_bolo.txt"],
+    "n5": ["dados.csv"],
+    "n6": ["foto_perfil.png"]
+  },
+  "edges": [
+    ["n1", "n2"],
+    ["n1", "n3"],
+    ["n2", "n4"],
+    ["n3", "n4"],
+    ["n4", "n5"],
+    ["n5", "n6"]
+  ]
+}
