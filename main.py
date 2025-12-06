@@ -56,18 +56,18 @@ def main():
     print(f"Nó final: {result.get('final_node', 'Nenhum')}")
 
     # Informed Flooding --------------------------------------------
-    # result = search.run_search(
-    #     start_node='n1',
-    #     target_resource="dados.csv",
-    #     ttl=5,
-    #     algo='informed_flooding'
-    # )
+    result = search.run_search(
+        start_node='n1',
+        target_resource="dados.csv",
+        ttl=5,
+        algo='informed_flooding'
+    )
 
-    # print("\nRELATÓRIO FINAL:")
-    # print(f"Sucesso: {result['success']}")
-    # print(f"Mensagens Trocadas: {result['msgs']}")
-    # print(f"Nós envolvidos: {result['nodes']}")
-    # print(f"Nó final: {result.get('final_node', 'Nenhum')}")
+    print("\nRELATÓRIO FINAL:")
+    print(f"Sucesso: {result['success']}")
+    print(f"Mensagens Trocadas: {result['msgs']}")
+    print(f"Nós envolvidos: {result['nodes']}")
+    print(f"Nó final: {result.get('final_node', 'Nenhum')}")
 
 if __name__ == "__main__":
     main()
