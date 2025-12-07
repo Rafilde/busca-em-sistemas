@@ -1,6 +1,8 @@
 import sys
 import os
 
+from network.parser import NetworkConfigParser
+from network.visualizer import NetworkVisualizer
 from tools.plot_graphs import gerar_graficos
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -41,6 +43,18 @@ def main():
 
         project_root = os.path.dirname(os.path.abspath(__file__))
         path_arquivo_json = os.path.join(project_root, 'json', CONFIG_FILENAME)
+
+
+    # parser = NetworkConfigParser()
+    # try:
+    #     rede = parser.parse(path_arquivo_json)
+    #     print(f"✅ Rede carregada com sucesso! ({len(rede.get_all_nodes())} nós)")
+    # except Exception as e:
+    #     print(f"Erro fatal ao carregar/parsear '{path_arquivo_json}': {e}")
+    #     return
+    # NetworkVisualizer.draw(
+    #     rede
+    # )
     
     rodar_benchmark(
         arquivos_a_testar=[path_arquivo_json],

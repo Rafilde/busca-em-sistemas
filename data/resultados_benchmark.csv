@@ -1,7 +1,7 @@
 Topologia,Algoritmo,Sucesso,Mensagens,Nos Visitados,Tempo(ms),Obs,TTL_Usado
-rede_teste_unica.json,Flooding,True,19,20,0.0,-,15
-rede_teste_unica.json,Random Walk,True,16,8,1.0,-,30
-rede_teste_unica.json,Informed Walk (Cold),True,17,9,1.0,Cache Vazio,30
-rede_teste_unica.json,Informed Walk (Warm),True,0,1,1.0,Cache Cheio,30
-rede_teste_unica.json,Informed Flooding (Cold),True,19,20,0.0,Cache Vazio,15
-rede_teste_unica.json,Informed Flooding (Warm),True,0,1,1.42,Cache Cheio,15
+rede_teste_unica.json,Flooding,True,18,19,1.0,-,15
+rede_teste_unica.json,Random Walk,False,30,12,4.0,-,30
+rede_teste_unica.json,Informed Walk (Cold),False,30,12,1.0,Cache Vazio,30
+rede_teste_unica.json,Informed Walk (Warm),True,14,11,1.0,Cache Cheio,30
+rede_teste_unica.json,Informed Flooding (Cold),True,18,19,2.01,Cache Vazio,15
+rede_teste_unica.json,Informed Flooding (Warm),True,0,1,2.0,Cache Cheio,15
