@@ -20,7 +20,7 @@ def main():
         print("Abortando: Rede inválida.")
         return
     
-    # NetworkVisualizer.draw(rede)
+    # NetworkVisualizer.draw(rede) ----- opicional
 
     search = SearchEngine(rede)
 
