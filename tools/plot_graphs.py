@@ -6,7 +6,7 @@ import os
 sns.set_theme(style="whitegrid")
 plt.rcParams.update({'font.size': 11})
 
-def gerar_graficos():
+def gerar_graficos(filename=None):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     parent_dir = os.path.dirname(current_dir)
     
@@ -28,7 +28,7 @@ def gerar_graficos():
     print("Gerando Gráfico 1: Eficiência Clássica...")
     
     df_eff = df[
-        (df['Topologia'] == 'rede_grande.json') & 
+        (df['Topologia'] == filename) & 
         (df['Algoritmo'].isin(['Flooding', 'Random Walk']))
     ]
 
@@ -53,7 +53,7 @@ def gerar_graficos():
     print("Gerando Gráfico 2: Cache Completo...")
 
     df_cache = df[
-        (df['Topologia'] == 'rede_grande.json') & 
+        (df['Topologia'] == filename) & 
         (df['Algoritmo'].str.contains('Informed'))
     ]
 
@@ -87,6 +87,3 @@ def gerar_graficos():
     plt.close()
 
     print(f"\n✅ Gráficos atualizados salvos em: {data_dir}")
-
-if __name__ == "__main__":
-    gerar_graficos()

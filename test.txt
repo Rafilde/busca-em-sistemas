@@ -1,3 +1,17 @@
+NUM_NODES = 100           
+MIN_NEIGHBORS = 4
+MAX_NEIGHBORS = 50
+
+
+ou 
+
+
+NUM_NODES = 20           
+MIN_NEIGHBORS = 2
+MAX_NEIGHBORS = 6 
+
+ou
+
 {
   "num_nodes": 6,
   "min_neighbors": 1,

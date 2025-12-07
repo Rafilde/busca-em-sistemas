@@ -63,9 +63,6 @@ def gerar_topologia(filename, num_nodes, min_neighbors, max_neighbors):
         json.dump(output_data, f, indent=2)
     
     print(f"✅ Arquivo salvo em: {caminho_completo}")
-    print(f"   (Recurso ÚNICO '{UNIQUE_TARGET_RESOURCE}' está no nó: {unique_node})")
+    print(f"(Recurso ÚNICO '{UNIQUE_TARGET_RESOURCE}' está no nó: {unique_node})")
 
-if __name__ == "__main__":
-    gerar_topologia("rede_pequena.json", num_nodes=10, min_neighbors=2, max_neighbors=5)
-    gerar_topologia("rede_media.json", num_nodes=50, min_neighbors=2, max_neighbors=10)
-    gerar_topologia("rede_grande.json", num_nodes=100, min_neighbors=3, max_neighbors=20)
+    return caminho_completo
