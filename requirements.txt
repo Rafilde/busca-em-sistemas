@@ -1,2 +1,5 @@
 networkx 
 matplotlib
+pandas 
+matplotlib 
+seaborn

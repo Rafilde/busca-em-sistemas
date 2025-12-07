@@ -4,7 +4,7 @@ from network.visualizer import NetworkVisualizer
 from search.engine import SearchEngine           
 
 def main():
-    config_file = "network.json"
+    config_file = "json/teste.json"
 
     parser = NetworkConfigParser()
     try:
@@ -24,25 +24,21 @@ def main():
 
     search = SearchEngine(rede)
 
-    print("\n--- INICIANDO TESTES ---")
-
     search.run_search('flooding', 'n1', 'dados.csv', 5)
 
     search.run_search('random_walk', 'n1', 'dados.csv', 10)
     
-    print("\n>> Teste de Aprendizado (Cache) <<")
-    
     search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
     
-    search.run_search('informed_flooding', 'n1', 'dados.csv', 5)
+    # search.run_search('informed_flooding', 'n1', 'dados.csv', 5)
 
-    search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
+    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
     
-    search.run_search('informed_flooding', 'n1', 'dados.csv', 5)
+    # search.run_search('informed_flooding', 'n1', 'dados.csv', 5)
 
-    search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
+    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
     
-    search.run_search('informed_flooding', 'n1', 'dados.csv', 5)
+    # search.run_search('informed_flooding', 'n1', 'dados.csv', 5)
 
 if __name__ == "__main__":
     main()
