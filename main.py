@@ -22,5 +22,21 @@ def main():
     
     search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
 
+    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
+    
+    # search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
+
+    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
+    
+    # search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
+
+    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
+    
+    # search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
+
+    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
+    
+    # search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
+
 if __name__ == "__main__":
     main()
