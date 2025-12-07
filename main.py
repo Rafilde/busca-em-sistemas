@@ -1,73 +1,26 @@
-from algorithms import SearchEngine
-from p2p_network import P2PNetwork
+from network.p2p_network import P2PNetwork
+from network.validator import NetworkValidator
+from network.visualizer import NetworkVisualizer
+from search.engine import SearchEngine 
 
 def main():
     try:
         rede = P2PNetwork("network.json")
-    except ValueError:
-        print("Abortando: Configuração inválida.")
-        return
-    
-    # rede.draw() 
+        if not NetworkValidator.validate(rede): return
+    except Exception as e:
+        print(e); return
 
     search = SearchEngine(rede.graph)
 
-    # fLooding ----------------------------------------------------
-    result = search.run_search(
-        start_node='n1',
-        target_resource="dados.csv",
-        ttl=5,
-        algo='flooding'
-    )
+    # NetworkVisualizer.draw(rede)
 
-    print("\nRELATÓRIO FINAL:")
-    print(f"Sucesso: {result['success']}")
-    print(f"Mensagens Trocadas: {result['msgs']}")
-    print(f"Nós envolvidos: {result['nodes']}")
-    print(f"Nó final: {result.get('final_node', 'Nenhum')}")
+    search.run_search('flooding', 'n1', 'dados.csv', 5)
 
-    # Random Walk -------------------------------------------------
-
-    result = search.run_search(
-        start_node='n1',
-        target_resource="dados.csv",
-        ttl=5,
-        algo='random_walk'
-    )
-
-    print("\nRELATÓRIO FINAL:")
-    print(f"Sucesso: {result['success']}")
-    print(f"Mensagens Trocadas: {result['msgs']}")
-    print(f"Nós envolvidos: {result['nodes']}")
-    print(f"Nó final: {result.get('final_node', 'Nenhum')}")
-
-    # Informed Random Walk -----------------------------------------
-    result = search.run_search(
-        start_node='n1',
-        target_resource="dados.csv",
-        ttl=6,
-        algo='informed_random_walk'
-    )
-
-    print("\nRELATÓRIO FINAL:")
-    print(f"Sucesso: {result['success']}")
-    print(f"Mensagens Trocadas: {result['msgs']}")
-    print(f"Nós envolvidos: {result['nodes']}")
-    print(f"Nó final: {result.get('final_node', 'Nenhum')}")
-
-    # Informed Flooding --------------------------------------------
-    result = search.run_search(
-        start_node='n1',
-        target_resource="dados.csv",
-        ttl=5,
-        algo='informed_flooding'
-    )
-
-    print("\nRELATÓRIO FINAL:")
-    print(f"Sucesso: {result['success']}")
-    print(f"Mensagens Trocadas: {result['msgs']}")
-    print(f"Nós envolvidos: {result['nodes']}")
-    print(f"Nó final: {result.get('final_node', 'Nenhum')}")
+    search.run_search('random_walk', 'n1', 'dados.csv', 10)
+    
+    search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
+    
+    search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
 
 if __name__ == "__main__":
     main()
