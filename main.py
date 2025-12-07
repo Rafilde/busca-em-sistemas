@@ -1,42 +1,58 @@
-from network.p2p_network import P2PNetwork
-from network.validator import NetworkValidator
-from network.visualizer import NetworkVisualizer
-from search.engine import SearchEngine 
+import sys
+import os
+
+from tools.plot_graphs import gerar_graficos
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(current_dir)
+
+from tools.benchmark import rodar_benchmark
+from tools.gerador import gerar_topologia, UNIQUE_TARGET_RESOURCE
+
+USE_GENERATOR = True
+
+CONFIG_FILENAME = "rede_teste_unica.json" 
+NUM_NODES = 20           
+MIN_NEIGHBORS = 2
+MAX_NEIGHBORS = 6 
+
+TARGET_RESOURCE = UNIQUE_TARGET_RESOURCE 
+START_NODE = "n1"
+CUSTOM_TTL = 15                         
+
 
 def main():
-    try:
-        rede = P2PNetwork("network.json")
-        if not NetworkValidator.validate(rede): return
-    except Exception as e:
-        print(e); return
+    print("\n=============================================")
+    print(f"🔄 Modo de Operação: {'AUTOMÁTICO (GERANDO NOVO JSON)' if USE_GENERATOR else 'MANUAL (USANDO ARQUIVO EXISTENTE)'}")
+    print("=============================================")
 
-    search = SearchEngine(rede.graph)
+    path_arquivo_json = ""
 
-    # NetworkVisualizer.draw(rede)
-
-    search.run_search('flooding', 'n1', 'dados.csv', 5)
-
-    search.run_search('random_walk', 'n1', 'dados.csv', 10)
+    if USE_GENERATOR:
     
-    search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
-    
-    search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
+        path_arquivo_json = gerar_topologia(
+            CONFIG_FILENAME, 
+            num_nodes=NUM_NODES, 
+            min_neighbors=MIN_NEIGHBORS, 
+            max_neighbors=MAX_NEIGHBORS
+        )
 
-    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
-    
-    # search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
+    else:
 
-    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
+        project_root = os.path.dirname(os.path.abspath(__file__))
+        path_arquivo_json = os.path.join(project_root, 'json', CONFIG_FILENAME)
     
-    # search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
+    rodar_benchmark(
+        arquivos_a_testar=[path_arquivo_json],
+        target=TARGET_RESOURCE,
+        start_node=START_NODE,
+        custom_ttl=CUSTOM_TTL
+    )
 
-    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
+    print("\n--- GERANDO GRÁFICOS ---")
+    gerar_graficos(filename=CONFIG_FILENAME)
     
-    # search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
-
-    # search.run_search('informed_random_walk', 'n1', 'dados.csv', 10)
-    
-    # search.run_search('informed_flooding', 'n1', 'dados.csv', 10)
+    print("=============================================\n")
 
 if __name__ == "__main__":
     main()

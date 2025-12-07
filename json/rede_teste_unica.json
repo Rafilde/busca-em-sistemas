@@ -1,0 +1,264 @@
+{
+  "num_nodes": 20,
+  "min_neighbors": 2,
+  "max_neighbors": 6,
+  "unique_target_location": "n14",
+  "resources": {
+    "n1": [
+      "arquivo_16.txt"
+    ],
+    "n2": [
+      "arquivo_9.txt",
+      "arquivo_8.txt",
+      "arquivo_13.txt"
+    ],
+    "n3": [
+      "arquivo_3.txt",
+      "arquivo_9.txt",
+      "arquivo_5.txt",
+      "arquivo_15.txt",
+      "arquivo_18.txt"
+    ],
+    "n4": [
+      "arquivo_18.txt"
+    ],
+    "n5": [
+      "arquivo_12.txt",
+      "arquivo_18.txt",
+      "arquivo_3.txt",
+      "arquivo_19.txt",
+      "arquivo_14.txt"
+    ],
+    "n6": [
+      "arquivo_5.txt",
+      "arquivo_8.txt",
+      "arquivo_9.txt",
+      "arquivo_10.txt"
+    ],
+    "n7": [
+      "arquivo_5.txt",
+      "arquivo_1.txt",
+      "arquivo_8.txt",
+      "arquivo_16.txt"
+    ],
+    "n8": [
+      "arquivo_12.txt"
+    ],
+    "n9": [
+      "arquivo_6.txt",
+      "arquivo_9.txt"
+    ],
+    "n10": [
+      "arquivo_13.txt",
+      "arquivo_3.txt",
+      "arquivo_6.txt",
+      "arquivo_17.txt"
+    ],
+    "n11": [
+      "arquivo_5.txt",
+      "arquivo_9.txt",
+      "arquivo_7.txt"
+    ],
+    "n12": [
+      "arquivo_15.txt",
+      "arquivo_3.txt",
+      "arquivo_13.txt"
+    ],
+    "n13": [
+      "arquivo_14.txt",
+      "arquivo_1.txt",
+      "arquivo_8.txt",
+      "arquivo_10.txt",
+      "arquivo_6.txt"
+    ],
+    "n14": [
+      "arquivo_19.txt",
+      "arquivo_14.txt",
+      "arquivo_16.txt",
+      "arquivo_9.txt",
+      "chave_mestra_secreta.bin"
+    ],
+    "n15": [
+      "arquivo_15.txt",
+      "arquivo_4.txt",
+      "arquivo_3.txt",
+      "arquivo_2.txt"
+    ],
+    "n16": [
+      "arquivo_18.txt",
+      "arquivo_3.txt",
+      "arquivo_19.txt",
+      "arquivo_9.txt",
+      "arquivo_2.txt"
+    ],
+    "n17": [
+      "arquivo_17.txt",
+      "arquivo_1.txt"
+    ],
+    "n18": [
+      "arquivo_9.txt",
+      "arquivo_11.txt",
+      "arquivo_5.txt",
+      "arquivo_12.txt"
+    ],
+    "n19": [
+      "arquivo_14.txt",
+      "arquivo_1.txt",
+      "arquivo_13.txt",
+      "arquivo_15.txt",
+      "arquivo_5.txt"
+    ],
+    "n20": [
+      "arquivo_7.txt",
+      "arquivo_17.txt",
+      "arquivo_6.txt",
+      "arquivo_3.txt"
+    ]
+  },
+  "edges": [
+    [
+      "n1",
+      "n2"
+    ],
+    [
+      "n1",
+      "n3"
+    ],
+    [
+      "n1",
+      "n5"
+    ],
+    [
+      "n1",
+      "n7"
+    ],
+    [
+      "n2",
+      "n4"
+    ],
+    [
+      "n2",
+      "n8"
+    ],
+    [
+      "n2",
+      "n11"
+    ],
+    [
+      "n2",
+      "n15"
+    ],
+    [
+      "n2",
+      "n19"
+    ],
+    [
+      "n3",
+      "n4"
+    ],
+    [
+      "n3",
+      "n5"
+    ],
+    [
+      "n3",
+      "n6"
+    ],
+    [
+      "n3",
+      "n13"
+    ],
+    [
+      "n3",
+      "n18"
+    ],
+    [
+      "n4",
+      "n6"
+    ],
+    [
+      "n4",
+      "n11"
+    ],
+    [
+      "n4",
+      "n16"
+    ],
+    [
+      "n4",
+      "n19"
+    ],
+    [
+      "n5",
+      "n7"
+    ],
+    [
+      "n5",
+      "n10"
+    ],
+    [
+      "n5",
+      "n18"
+    ],
+    [
+      "n6",
+      "n9"
+    ],
+    [
+      "n6",
+      "n14"
+    ],
+    [
+      "n6",
+      "n15"
+    ],
+    [
+      "n6",
+      "n17"
+    ],
+    [
+      "n7",
+      "n8"
+    ],
+    [
+      "n7",
+      "n17"
+    ],
+    [
+      "n8",
+      "n9"
+    ],
+    [
+      "n8",
+      "n12"
+    ],
+    [
+      "n9",
+      "n10"
+    ],
+    [
+      "n9",
+      "n12"
+    ],
+    [
+      "n9",
+      "n13"
+    ],
+    [
+      "n13",
+      "n14"
+    ],
+    [
+      "n13",
+      "n16"
+    ],
+    [
+      "n13",
+      "n20"
+    ],
+    [
+      "n17",
+      "n20"
+    ]
+  ]
+}

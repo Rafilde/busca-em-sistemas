@@ -1,34 +1,45 @@
-import networkx as nx
+from domain.network import Network
+
 
 class NetworkValidator:
-    @staticmethod
-    def validate(network):
-        
-        print("\n--- Iniciando Validações ---")
-        graph = network.graph
+    def validate(self, network: Network) -> bool:
+        print("\n--- Validando Regras da Rede ---")
         errors = []
+        nodes = network.get_all_nodes()
 
-        if not nx.is_connected(graph):
-            errors.append("ERRO: A rede está particionada (existem nós isolados).")
+        if not nodes:
+            print("Erro Crítico: A rede está vazia.")
+            return False
+
+        start_node = nodes[0]
+        visited = {start_node.id}
+        queue = [start_node]
+
+        while queue:
+            current = queue.pop(0)
+            for neighbor_id in current.neighbors:
+                if neighbor_id not in visited:
+                    visited.add(neighbor_id)
+                    neighbor_node = network.get_node(neighbor_id)
+                    if neighbor_node:
+                        queue.append(neighbor_node)
         
-        for node in graph.nodes():
-            degree = graph.degree[node]
-            resources = graph.nodes[node]['resources']
+        if len(visited) != len(nodes):
+            errors.append(f"ERRO: Rede Particionada! Apenas {len(visited)} de {len(nodes)} nós são alcançáveis.")
+
+        for node in nodes:
+            degree = len(node.neighbors)
             
             if not (network.min_neighbors <= degree <= network.max_neighbors):
-                errors.append(f"ERRO: Nó {node} tem {degree} vizinhos (Permitido: {network.min_neighbors}-{network.max_neighbors}).")
+                errors.append(f"ERRO: Nó {node.id} tem {degree} vizinhos (Permitido: {network.min_neighbors}-{network.max_neighbors}).")
             
-            if not resources:
-                errors.append(f"ERRO: Nó {node} não possui recursos.")
-
-        if list(nx.selfloop_edges(graph)):
-            errors.append("ERRO: Existem laços (nós conectados a si mesmos).")
+            if not node.resources:
+                errors.append(f"ERRO: Nó {node.id} não possui nenhum recurso.")
 
         if errors:
-            for e in errors:
-                print(e)
             print(">>> A REDE É INVÁLIDA <<<")
+            for e in errors: print(f" - {e}")
             return False
-        else:
-            print(">>> SUCESSO: A REDE É VÁLIDA! <<<")
-            return True
+        
+        print(">>> SUCESSO: Rede Válida e Pronta! <<<")
+        return True

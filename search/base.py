@@ -1,6 +1,6 @@
 class SearchAlgorithm:
-    def __init__(self, graph):
-        self.graph = graph
+    def __init__(self, network):
+        self.network = network
 
     def run(self, start_node, target_resource, ttl):
         raise NotImplementedError("Implementar no algoritmo específico")
