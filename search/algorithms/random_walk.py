@@ -3,32 +3,36 @@ from ..base import SearchAlgorithm
 
 class RandomWalkSearch(SearchAlgorithm):
 
-    def run(self, start_node, target_resource, ttl):
+    def run(self, start_node_id, target_resource, ttl):
         msgs_count = 0
         nodes_involved = set()
 
-        queue = [(start_node, ttl)]
-        nodes_involved.add(start_node)
+        queue = [(start_node_id, ttl)]
+        nodes_involved.add(start_node_id)
 
         while queue:
-            current_node, current_ttl = queue.pop(0)
+            current_id, current_ttl = queue.pop(0)
 
-            if target_resource in self.graph.nodes[current_node]['resources']:
+            node_obj = self.network.get_node(current_id)
+            if not node_obj: continue
+
+            if node_obj.has_resource(target_resource):
                 return {
                     "success": True,
                     "msgs": msgs_count,
                     "nodes": len(nodes_involved),
-                    "final_node": current_node
+                    "final_node": current_id
                 }
 
             if current_ttl <= 0:
                 continue
 
-            neighbors = list(self.graph.neighbors(current_node))
+            neighbors = list(node_obj.neighbors)
+            
             if neighbors:
-                next_node = random.choice(neighbors)
+                next_node_id = random.choice(neighbors)
                 msgs_count += 1
-                nodes_involved.add(next_node)
-                queue.append((next_node, current_ttl - 1))
+                nodes_involved.add(next_node_id)
+                queue.append((next_node_id, current_ttl - 1))
 
         return {"success": False, "msgs": msgs_count, "nodes": len(nodes_involved)}
