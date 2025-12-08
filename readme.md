@@ -1,5 +1,16 @@
 # 🚀 Simulação Automatizada de Busca em Redes P2P
 
+**Disciplina:** Computação Distribuída
+
+**Professor(a):** Naboa das Chargas Mendonça
+
+**Integrantes do Grupo:**
+* Rafael Silva - Matrícula: 2212378
+* Siwan Eden - Matrícula: 2220191
+* Evandro Luz - Matrícula: 2220294
+
+---
+
 Este projeto simula e compara a eficiência de diferentes algoritmos de busca em redes Peer-to-Peer (P2P) não estruturadas. O fluxo é totalmente automatizado: a `main.py` serve como painel de controle, gerando a rede, executando o benchmark completo e plotando os gráficos de resultado.Você também pode gerar o grafo manualmente se quiser, bastaa mudar o `rede_teste_unica_json`
 
 ## ⚙️ Arquitetura do Projeto
